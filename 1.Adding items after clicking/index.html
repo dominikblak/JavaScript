@@ -5,6 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
+    <style>
+      button {
+        display: block;
+        margin: 10px auto;
+      }
+      div {
+        width: 30px;
+        height: 30px;
+        background-color: black;
+        margin: 5px;
+        float: left;
+        color: white;
+        text-align: center;
+        line-height: 30px;
+      }
+      .circle {
+        background-color: white;
+        border-radius: 50%;
+        color: black;
+        border: black 2px solid;
+      }
+    </style>
   </head>
-  <body></body>
+  <body>
+    <button>Utwórz element</button>
+    <script>
+      const btn = document.querySelector("button");
+      let number = 1;
+      const addElement = function() {
+        const div = document.createElement("div");
+        div.textContent = number;
+        document.body.appendChild(div);
+        number = number + 1;
+      };
+      btn.addEventListener("click", addElement);
+    </script>
+  </body>
 </html>
