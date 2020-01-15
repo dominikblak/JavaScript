@@ -19,6 +19,7 @@
         color: white;
         text-align: center;
         line-height: 30px;
+        border: black 2px solid;
       }
       .circle {
         background-color: white;
@@ -36,6 +37,9 @@
       const addElement = function() {
         const div = document.createElement("div");
         div.textContent = number;
+        if (number % 5 == 0) {
+          div.classList.add("circle");
+        }
         document.body.appendChild(div);
         number = number + 1;
       };
