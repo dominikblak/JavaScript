@@ -19,8 +19,8 @@ document.addEventListener("mousemove", e => {
   if (drawActive) {
     divX = e.clientX - insertDivX;
     divY = e.clientY - insertDivY;
-    div.style.left = `${divX - 50}px`;
-    div.style.top = `${divY - 50}px`;
+    div.style.left = `${divX}px`;
+    div.style.top = `${divY}px`;
   }
 });
 div.addEventListener("mouseup", () => {
