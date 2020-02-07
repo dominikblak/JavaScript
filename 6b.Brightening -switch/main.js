@@ -3,7 +3,7 @@
 let red = 100;
 let green = 100;
 let blue = 100;
-
+let flag = false;
 document.body.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
 
 const changeColor = e => {
@@ -16,19 +16,26 @@ const changeColor = e => {
   // wersja 1 - instrukcja if
   // wersja 2 - instrukcja switch
   let key = e.keyCode;
+  switch (key) {
+    case 38:
+      if (red < 256) {
+        red++;
+        green++;
+        blue++;
+        document.body.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+        console.log(red, green, blue);
+        break;
+      }
 
-  if (key === 38 && red < 255) {
-    red++;
-    green++;
-    blue++;
-    console.log(red, green, blue);
-    document.body.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
-  } else if (key === 40 && red > 0) {
-    red--;
-    green--;
-    blue--;
-    console.log(red, green, blue);
-    document.body.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+    case 40:
+      if (red > 0) {
+        red--;
+        green--;
+        blue--;
+        document.body.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+        console.log(red, green, blue);
+        break;
+      }
   }
 };
 
