@@ -13,7 +13,7 @@ const game = {
 const hands = [...document.querySelectorAll(".select img")];
 function handSelection() {
   game.playerHand = this.dataset.option;
-  console.log(game.playerHand);
+  console.log(game);
   hands.forEach(hand => (hand.style.boxShadow = ""));
   this.style.boxShadow = "0 0 0 4px red";
 }
