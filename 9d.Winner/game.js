@@ -13,12 +13,24 @@ const game = {
 const hands = [...document.querySelectorAll(".select img")];
 function handSelection() {
   game.playerHand = this.dataset.option;
-  console.log(game.playerHand);
   hands.forEach(hand => (hand.style.boxShadow = ""));
   this.style.boxShadow = "0 0 0 4px red";
 }
 function aiChoice() {
   return hands[Math.floor(Math.random() * 3)].dataset.option;
+}
+function checkResult(player, ai) {
+  if (player === ai) {
+    return "draw";
+  } else if (
+    (player === "papier" && ai === "kamień") ||
+    (player === "kamień" && ai === "nożyczki") ||
+    (player === "nożyczki" && ai === "papier")
+  ) {
+    return "win";
+  } else {
+    return "loss";
+  }
 }
 function startGame() {
   if (!game.playerHand) {
@@ -26,6 +38,9 @@ function startGame() {
     return;
   }
   game.aiHand = aiChoice();
+  const gameResult = checkResult(game.playerHand, game.aiHand);
+  console.log(game);
+  console.log(gameResult);
 }
 hands.forEach(hand => {
   hand.addEventListener("click", handSelection);
